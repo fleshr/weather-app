@@ -11,7 +11,7 @@ import WeatherSkeleton from './WeatherSkeleton';
 const Weather = () => {
   const location = useRecoilValue(locationAtom);
   const [weather, setWeather] = useState<IWeather | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!location) return;

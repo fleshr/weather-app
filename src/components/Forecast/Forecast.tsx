@@ -13,7 +13,7 @@ import ForecastTableHeader from './ForecastTableHeader';
 const Forecast = () => {
   const location = useRecoilValue(locationAtom);
   const [forecast, setForecast] = useState<IForecast | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!location) return;
