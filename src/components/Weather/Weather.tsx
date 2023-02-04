@@ -6,7 +6,7 @@ import { degToDirection, minimizeWeather } from '@/utils';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import Loader from './Loader';
+import WeatherSkeleton from './WeatherSkeleton';
 
 const Weather = () => {
   const location = useRecoilValue(locationAtom);
@@ -29,12 +29,7 @@ const Weather = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
-  if (loading)
-    return (
-      <section className="flex h-[16.375rem] items-center justify-center py-7 md:h-[24rem] md:pt-14 md:pb-16">
-        <Loader />
-      </section>
-    );
+  if (loading) return <WeatherSkeleton />;
 
   if (!weather) return null;
 

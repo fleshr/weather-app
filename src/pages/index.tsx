@@ -2,7 +2,7 @@ import { locationAtom } from '@/atoms/locationAtom';
 import Footer from '@/components/Footer';
 import Forecast from '@/components/Forecast/Forecast';
 import Header from '@/components/Header/Header';
-import CurrentWeather from '@/components/Weather';
+import CurrentWeather from '@/components/Weather/Weather';
 import { DEFAULT_CITY } from '@/constants';
 import { ILocation } from '@/interfaces/Location';
 import { getLocationByGeolocation } from '@/utils/getLocationByGeolocation';
