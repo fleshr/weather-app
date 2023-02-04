@@ -15,7 +15,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+        sans: ['var(--font-roboto)', 'Helvetica', 'Arial', 'sans-serif'],
       },
       screens: {
         md: '768px',
