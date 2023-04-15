@@ -25,7 +25,7 @@ const ForecastDayRow: React.FC<Props> = ({ children, time }) => {
           </span>
         </h3>
       </div>
-      <ul className="mt-1.5 gap-y-1.5 md:mt-0 md:flex md:flex-grow md:flex-col md:justify-center md:gap-y-1.5">
+      <ul className="mt-1.5 space-y-1.5 md:mt-0 md:flex md:flex-grow md:flex-col md:justify-center md:space-y-1.5">
         {children}
       </ul>
     </li>

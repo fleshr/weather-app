@@ -12,7 +12,7 @@ const ForecastSkeleton = () => {
                   <div className="ml-1 h-[14px] w-[50px] animate-pulse rounded bg-dark-blue-400 md:ml-0 md:mt-2" />
                 </div>
               </div>
-              <ul className="mt-1.5 gap-y-1.5 md:mt-0 md:flex md:flex-grow md:flex-col md:justify-center md:gap-y-3.5">
+              <ul className="mt-1.5 space-y-1.5 md:mt-0 md:flex md:flex-grow md:flex-col md:justify-center md:space-y-3.5">
                 {Array(4)
                   .fill(null)
                   .map((_, index) => {
