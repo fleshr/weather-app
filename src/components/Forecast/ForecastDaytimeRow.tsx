@@ -23,7 +23,7 @@ const ForecastDaytimeRow: React.FC<Props> = ({ weather, time }) => {
   const windDirection = degToDirection(windDeg);
 
   return (
-    <div className="grid grid-cols-forecast-mobile items-center md:grid-cols-forecast-4 md:gap-5 lg:grid-cols-forecast-5 xl:grid-cols-forecast-7">
+    <li className="grid grid-cols-forecast-mobile items-center md:grid-cols-forecast-4 md:gap-5 lg:grid-cols-forecast-5 xl:grid-cols-forecast-7">
       <div>
         <h4>{time}</h4>
       </div>
@@ -49,7 +49,7 @@ const ForecastDaytimeRow: React.FC<Props> = ({ weather, time }) => {
       <div className="hidden text-center xl:block">{humidity}%</div>
       <div className="hidden text-center xl:block">{pressure}</div>
       <div className="hidden text-center lg:block">{feelsTemp}°</div>
-    </div>
+    </li>
   );
 };
 

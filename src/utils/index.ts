@@ -12,6 +12,7 @@ export const minimizeForecast = (forecast: IOWMForecast): IForecast => {
   const daytime = ['Ночь', 'Утро', 'День', 'Вечер'];
   const forecastArray: IForecast = [];
   const forecastMap = new Map<string, IForecastList[]>();
+
   forecast.list
     .map((item) => ({ ...item, dt: (item.dt + forecast.city.timezone) * 1000 }))
     .filter((item) => {
@@ -19,19 +20,16 @@ export const minimizeForecast = (forecast: IOWMForecast): IForecast => {
       return hours % 6 === 0 || hours % 6 === 1 || hours % 6 === 2;
     })
     .forEach((item) => {
-      let time = new Date(item.dt).setUTCHours(0, 0, 0, 0).toString();
-      if (
-        new Date(item.dt).getUTCHours() === 0 ||
-        new Date(item.dt).getUTCHours() === 1 ||
-        new Date(item.dt).getUTCHours() === 2
-      )
-        time = new Date(item.dt - 86400000).setUTCHours(0, 0, 0, 0).toString();
-      forecastMap.has(time)
-        ? forecastMap.set(time, [
-            ...(forecastMap.get(time) as IForecastList[]),
-            item,
-          ])
-        : forecastMap.set(time, [item]);
+      const date = new Date(item.dt);
+      const hours = date.getUTCHours();
+
+      if (hours === 0 || hours === 1 || hours === 2) {
+        date.setUTCDate(date.getUTCDate() - 1);
+      }
+
+      const time = date.setUTCHours(0, 0, 0, 0).toString();
+
+      forecastMap.set(time, [...(forecastMap.get(time) ?? []), item]);
     });
 
   forecastMap.forEach((value, key) => {
@@ -63,37 +61,4 @@ export const minimizeWeather = (
     weatherIcon: weather.weather[0].icon,
     weatherDesc: weather.weather[0].description,
   };
-};
-
-export const getMounthName = (index: number) => {
-  const mounthsList = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'майа',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря',
-  ];
-
-  return mounthsList[index];
-};
-
-export const getWeekdayName = (index: number) => {
-  const weekdaysList = [
-    'воскресенье',
-    'понедельник',
-    'вторник',
-    'среда',
-    'четверг',
-    'пятница',
-    'суббота',
-  ];
-
-  return weekdaysList[index];
 };

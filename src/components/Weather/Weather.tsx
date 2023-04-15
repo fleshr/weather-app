@@ -48,6 +48,7 @@ const Weather = () => {
 
   return (
     <section className="flex flex-col items-center px-2.5 py-7 font-medium md:pt-14 md:pb-16">
+      <h2 className="sr-only">Текущая погода</h2>
       <p className="md:text-xl">{location?.name}</p>
       <p className="mt-2 flex items-center md:mt-7">
         <span className="relative h-[3.625rem] w-[3.625rem] md:h-[5.875rem] md:w-[5.875rem]">

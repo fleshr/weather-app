@@ -36,11 +36,11 @@ const Forecast = () => {
       <h2 className="font-medium md:text-xl">Прогноз погоды</h2>
       <div className="mt-1.5 md:-mt-[1.1875rem] xl:-mt-[1.6875rem]">
         <ForecastTableHeader />
-        <div className="divide-y divide-dark-blue-500">
-          {loading ? (
-            <ForecastSkeleton />
-          ) : (
-            forecast?.map((item) => (
+        <ul className="divide-y divide-dark-blue-500">
+          {loading && <ForecastSkeleton />}
+          {!loading &&
+            forecast &&
+            forecast.map((item) => (
               <ForecastDayRow time={item.time} key={item.time}>
                 {item.forecast.map((item) => (
                   <ForecastDaytimeRow
@@ -50,9 +50,8 @@ const Forecast = () => {
                   />
                 ))}
               </ForecastDayRow>
-            ))
-          )}
-        </div>
+            ))}
+        </ul>
       </div>
     </section>
   );

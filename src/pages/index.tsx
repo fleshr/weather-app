@@ -19,13 +19,13 @@ export default function Home() {
 
   useEffect(() => {
     const localStorageLocation: ILocation | null = JSON.parse(
-      localStorage.getItem('location') || 'null'
+      localStorage.getItem('location') ?? 'null'
     );
 
     if (
       localStorageLocation &&
-      Object.keys(DEFAULT_CITY).every((item) =>
-        Object.keys(localStorageLocation).includes(item)
+      Object.keys(localStorageLocation).every((item) =>
+        Object.keys(DEFAULT_CITY).includes(item)
       )
     ) {
       setLocation(localStorageLocation);
@@ -55,6 +55,7 @@ export default function Home() {
       <Header />
       <div className="mx-auto max-w-screen-xl">
         <main>
+          <h1 className="sr-only">Погода в {location?.name}</h1>
           <CurrentWeather />
           <Forecast />
         </main>

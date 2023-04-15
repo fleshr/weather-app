@@ -6,15 +6,19 @@ import { RecoilRoot } from 'recoil';
 const roboto = Roboto({
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '500', '700'],
-  variable: '--font-roboto',
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <RecoilRoot>
-      <div className={`${roboto.variable} font-sans`}>
+    <>
+      <style jsx global>{`
+        :root {
+          --roboto-font: ${roboto.style.fontFamily};
+        }
+      `}</style>
+      <RecoilRoot>
         <Component {...pageProps} />
-      </div>
-    </RecoilRoot>
+      </RecoilRoot>
+    </>
   );
 }

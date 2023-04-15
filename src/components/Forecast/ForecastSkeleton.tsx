@@ -5,19 +5,19 @@ const ForecastSkeleton = () => {
         .fill(null)
         .map((_, index) => {
           return (
-            <div key={index} className="py-4 md:flex md:py-7">
+            <li key={index} className="py-4 md:flex md:py-7">
               <div className="md:flex md:w-[8.75rem] md:flex-shrink-0 md:items-center">
                 <div className="flex md:flex-col">
                   <div className="h-[14px] w-[70px] animate-pulse rounded bg-dark-blue-400 md:h-[16px]" />
                   <div className="ml-1 h-[14px] w-[50px] animate-pulse rounded bg-dark-blue-400 md:ml-0 md:mt-2" />
                 </div>
               </div>
-              <div className="mt-1.5 space-y-1.5 md:mt-0 md:flex md:flex-grow md:flex-col md:justify-center md:space-y-3.5">
+              <ul className="mt-1.5 gap-y-1.5 md:mt-0 md:flex md:flex-grow md:flex-col md:justify-center md:gap-y-3.5">
                 {Array(4)
                   .fill(null)
                   .map((_, index) => {
                     return (
-                      <div
+                      <li
                         key={index}
                         className="grid grid-cols-forecast-mobile items-center md:grid-cols-forecast-4 md:gap-5 lg:grid-cols-forecast-5 xl:grid-cols-forecast-7"
                       >
@@ -31,11 +31,11 @@ const ForecastSkeleton = () => {
                         <div className="mx-auto hidden h-[16px] w-[40px] animate-pulse rounded bg-dark-blue-400 xl:block" />
                         <div className="mx-auto hidden h-[16px] w-[40px] animate-pulse rounded bg-dark-blue-400 xl:block" />
                         <div className="mx-auto hidden h-[16px] w-[30px] animate-pulse rounded bg-dark-blue-400 lg:block" />
-                      </div>
+                      </li>
                     );
                   })}
-              </div>
-            </div>
+              </ul>
+            </li>
           );
         })}
     </>
